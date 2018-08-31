@@ -1,4 +1,5 @@
 const Stack = require('./stackClass');
+const {peek, display} = require('./stackMethods');
 
 // 1. Create a Stack class with core functions - (push, pop)
 // Create a stack called starTrek and add Kirk, Spock, McCoy, Scotty
@@ -13,12 +14,16 @@ function main() {
   starTrek.push('McCoy');
   starTrek.push('Scotty');
 
-  console.log(JSON.stringify(starTrek));
+  peek(starTrek);
+  display(starTrek);
 }
+
+
+
 
 main();
 
-// 2. Useful methods for stack
+
 
 
 
