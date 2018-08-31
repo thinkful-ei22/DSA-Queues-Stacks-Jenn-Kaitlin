@@ -1,4 +1,5 @@
 const Queue = require('./queueClass');
+const Stack = require('./stackClass');
 
 function main(){
 
@@ -36,41 +37,19 @@ function main(){
   starTrekQ.dequeue();
   console.log(starTrekQ);
 
-  /*
-  stack 1=
-    {
-        v:1
-        n: 3
-    },
-    {
-        v: 3
-        n: 5
-    },
-    {
-        v: 5
-        n: null
-    } 
-  stack 2=
-    {
-        v:2
-        n: 4
-    },
-    {
-        v: 4
-        n: 6
-    },
-    {
-        v: 6
-        n: null
-    } */
-  //q = 1, 2, 3, 4, 5, 6 
+  const stack1 = new Stack();
 
-  //nodeA =  stack1.pop();
-//nodeB = stack2.pop();
+  function makeQueue(stack) { 
+  const queue = new Queue();
+  let node = stack.top;
 
-//q.enqueue(nodeA.value) -> {v:1, n: null, p: null}
-//q.first.prev = (nodeB.value) -> {v:1, n:{v:2, n:null, p: 1} p: null}
-  //
+  while (stack.top !== null) {
+    queue.enqueue(stack.pop());
+    node = node.next;
+  }
+
+  }
+
 }
 
 main();
