@@ -1,5 +1,5 @@
 const Stack = require('./stackClass');
-const {peek, display} = require('./stackMethods');
+const { peek, display } = require('./stackMethods');
 
 // 1. Create a Stack class with core functions - (push, pop)
 // Create a stack called starTrek and add Kirk, Spock, McCoy, Scotty
@@ -18,25 +18,34 @@ function main() {
   display(starTrek);
 }
 
-
-
-
-main();
-
-
-
+//main();
 
 
 // 3. Check for palindromes using stack
+// a b c b a
+// check the first half with the last half (what's being popped)
+// push first, if string of i === s.pop() str.length / 2, reverse string += pop
 
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  let stack = new Stack;
+  let reverseString = "";
+  for (let i=0; i < s.length; i++) {
+    stack.push(s[i]);
+  }
+  let node = stack.top;
 
-// function is_palindrome(s) {
-//   s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
-//   // your code goes here
-// }
+  console.log("stack", JSON.stringify(stack, null, 2));
+  while (node.next !== null) {
+    reverseString += stack.pop();
 
-// // true, true, true
-// console.log(is_palindrome("dad"));
+  }
+  console.log("reverse string", reverseString)
+}
+
+// true, true, true
+console.log(is_palindrome("fish"));
+//console.log(is_palindrome("dad"));
 // console.log(is_palindrome("A man, a plan, a canal: Panama"));
 // console.log(is_palindrome("1001"));
 // console.log(is_palindrome("Tauhida"));
