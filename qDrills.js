@@ -5,7 +5,7 @@ function main(){
 // Create a queue called starTrekQ and add Kirk, Spock, Uhura, Sulu, Checkov to the queue.
 
   const starTrekQ = new Queue();
-  //kirk< spock< uhura <sulu< checkov
+  //kirk <- spock <- uhura <- sulu <- checkov <-
   starTrekQ.enqueue('Kirk');
   starTrekQ.enqueue('Spock');
   starTrekQ.enqueue('Uhura');
@@ -35,6 +35,42 @@ function main(){
   starTrekQ.dequeue();
   starTrekQ.dequeue();
   console.log(starTrekQ);
+
+  /*
+  stack 1=
+    {
+        v:1
+        n: 3
+    },
+    {
+        v: 3
+        n: 5
+    },
+    {
+        v: 5
+        n: null
+    } 
+  stack 2=
+    {
+        v:2
+        n: 4
+    },
+    {
+        v: 4
+        n: 6
+    },
+    {
+        v: 6
+        n: null
+    } */
+  //q = 1, 2, 3, 4, 5, 6 
+
+  //nodeA =  stack1.pop();
+//nodeB = stack2.pop();
+
+//q.enqueue(nodeA.value) -> {v:1, n: null, p: null}
+//q.first.prev = (nodeB.value) -> {v:1, n:{v:2, n:null, p: 1} p: null}
+  //
 }
 
 main();
