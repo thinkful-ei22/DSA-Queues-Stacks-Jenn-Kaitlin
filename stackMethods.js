@@ -12,5 +12,5 @@ function display(stack){
 }
 
 module.exports = {
-    peek, 
-    display};
+  peek, 
+  display};

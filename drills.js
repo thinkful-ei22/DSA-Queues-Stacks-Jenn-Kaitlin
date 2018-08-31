@@ -27,9 +27,9 @@ function main() {
 // push first, if string of i === s.pop() str.length / 2, reverse string += pop
 
 function is_palindrome(s) {
-  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
   let stack = new Stack;
-  let reverseString = "";
+  let reverseString = '';
   for (let i=0; i < s.length; i++) {
     stack.push(s[i]);
   }
@@ -43,18 +43,18 @@ function is_palindrome(s) {
   // console.log("reverse string", reverseString)
 
   if (reverseString === s) {
-    return true
+    return true;
   } else {
-    return false
+    return false;
   }
 }
 
 // true, true, true
-console.log(is_palindrome("fish"));
-console.log(is_palindrome("dad"));
-console.log(is_palindrome("A man, a plan, a canal: Panama"));
-console.log(is_palindrome("1001"));
-console.log(is_palindrome("Tauhida"));
+// console.log(is_palindrome("fish"));
+// console.log(is_palindrome("dad"));
+// console.log(is_palindrome("A man, a plan, a canal: Panama"));
+// console.log(is_palindrome("1001"));
+// console.log(is_palindrome("Tauhida"));
 
 
 
@@ -65,14 +65,32 @@ console.log(is_palindrome("Tauhida"));
 
 function parenthesesMatch(expr) {
   let stack = new Stack;
+  let parenthesesCheck = 0;
+  let position = 0;
 
-  for (let i = 0; i < expr.length; i++) {
+  for(let i=0; i< expr.length; i++){
     stack.push(expr[i]);
+    if(expr[i]===')'){
+      parenthesesCheck++;
+      position = i;
+    }
+    if(expr[i]==='('){
+      parenthesesCheck--;
+      position = i;
+    }
   }
-  console.log(JSON.stringify(stack));
+  if(parenthesesCheck === 1){
+    return `Expected ( at ${position}.`;  
+  }
+  if(parenthesesCheck === -1){
+    return `Expected ) at ${position}.`; 
+  }
+  else{
+    return 'Matched!';
+  }
 }
 
-console.log(parenthesesMatch("(1 + 2) + 3"));
+console.log(parenthesesMatch('(()'));
 
 // 5. Sort Stack
 
