@@ -4,7 +4,14 @@ const Stack = require('./stackClass');
 
 
 function peek(stack){
-  console.log(stack.top.data); 
+  const node = stack.top;
+  if (node) {
+    return node.data;
+  }
+  else {
+    console.log('Stack is empty');
+    return false;
+  }
 }
 
 function display(stack){
