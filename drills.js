@@ -33,28 +33,46 @@ function is_palindrome(s) {
   for (let i=0; i < s.length; i++) {
     stack.push(s[i]);
   }
-  let node = stack.top;
 
-  console.log("stack", JSON.stringify(stack, null, 2));
-  while (node.next !== null) {
+  // console.log(JSON.stringify(stack.top.data));
+
+  while (stack.top !== null) {
     reverseString += stack.pop();
-
   }
-  console.log("reverse string", reverseString)
+
+  // console.log("reverse string", reverseString)
+
+  if (reverseString === s) {
+    return true
+  } else {
+    return false
+  }
 }
 
 // true, true, true
 console.log(is_palindrome("fish"));
-//console.log(is_palindrome("dad"));
-// console.log(is_palindrome("A man, a plan, a canal: Panama"));
-// console.log(is_palindrome("1001"));
-// console.log(is_palindrome("Tauhida"));
+console.log(is_palindrome("dad"));
+console.log(is_palindrome("A man, a plan, a canal: Panama"));
+console.log(is_palindrome("1001"));
+console.log(is_palindrome("Tauhida"));
 
 
 
 // 4. Matching parentheses in an expression
+// write a function that takes an arithmetic expression as an argument and returns the position in the expression where a parenthesis is missing or incorrect
+// input: (()
+// output: 
 
+function parenthesesMatch(expr) {
+  let stack = new Stack;
 
+  for (let i = 0; i < expr.length; i++) {
+    stack.push(expr[i]);
+  }
+  console.log(JSON.stringify(stack));
+}
+
+console.log(parenthesesMatch("(1 + 2) + 3"));
 
 // 5. Sort Stack
 
